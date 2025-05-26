@@ -39,11 +39,11 @@ jobs:
 
       - name: Run Snyk to check Docker image for vulnerabilities
         continue-on-error: true
-        uses: snyk/actions/docker@v1
+        uses: snyk/actions/docker@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          image: your/Dockerfile
+          image: mi-app
           args: --file=Dockerfile --sarif-file-output=snyk.sarif --sarif
 
       - name: Fix SARIF securitySeverity null values
